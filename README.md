@@ -1,4 +1,4 @@
-# MV* Patterns in Python: MVC / MVP / MVVM
+# 💡 MV* Patterns in Python: MVC / MVP / MVVM
 
 This project demonstrates three architectural UI patterns — **MVC**, **MVP**, and **MVVM** — using the same domain logic (a tiny “bank transfer” use case).  
 All examples are in plain Python with a console UI.
@@ -27,7 +27,7 @@ Everything is fully in-memory — no files, no DB, no network.
 
 ---
 
-## MVC
+## 🧪 MVC
 
 ### Explanation
 
@@ -95,7 +95,7 @@ Controller: TransferController coordinates the flow. It asks the View for inputs
 
 ---
 
-## MVP
+## 🧪 MVP
 
 ### Explanation
 
@@ -169,7 +169,7 @@ user input ---> |  - run_once()          | --render / prompt--> (prints, input)
 
 ---
 
-## MVVM
+## 🧪 MVVM
 
 ### Explanation
 
@@ -261,7 +261,53 @@ Model: Bank, Treasury, and Exchange form the pure domain layer. Bank orchestrate
 
 ---
 
-## Final thoughts
+## ⚙️ Sample Execution
+
+All three implementations behave the same from the user’s perspective:
+
+```bash
+% uv run mvc_app.py
+From account: alice
+To account: bob
+Amount: 10
+Progress: [1/4]
+Progress: [2/4]
+Convert 10.00 USD -> 9.00 EUR at 0.9000
+Proceed? [y/N]: y
+Progress: [3/4]
+Progress: [4/4]
+DONE: Transfer completed
+```
+```
+% uv run mvp_app.py
+From account: alice
+To account: bob
+Amount: 10
+Progress: [1/4]
+Progress: [2/4]
+Convert 10.00 USD -> 9.00 EUR at 0.9000
+Proceed? [y/N]: y
+Progress: [3/4]
+Progress: [4/4]
+DONE: Transfer completed
+```
+```
+% uv run mvvm_app.py
+From account: alice
+To account: bob
+Amount: 10
+Progress: [1/4]
+Progress: [2/4]
+Convert 10.00 USD -> 9.00 EUR at 0.9000
+Proceed? [y/N]: y
+Progress: [3/4]
+Progress: [4/4]
+DONE: Transfer completed
+```
+
+---
+
+## 🚀 Final thoughts
 
 - The domain (`Bank`, `Treasury`, `Exchange`) is completely UI-agnostic.
 - It reports progress, asks for confirmation, and signals completion using the `TransferPort` interface.
